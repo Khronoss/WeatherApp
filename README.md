@@ -19,11 +19,21 @@ Givent those choices, I feel most comfortable with SWIFT, it's clear, fast, can 
 #What technologies ?
 At the time I'm writing this section, the app is still a newborn baby, so I don't realy know what fancy technologies I'll be using.
 
-For example, for the dependency manager, I could chose **cocoapods**, **carthage**, or maybe **swift package manager** (I don't realy know yet this one). But at this time I find too early to chose, as I don't even plan to load any external framework to the application.
-
 For sure, I'll be using native frameworks, like UIKit, CocoaTouch, AutoLayout and maybe others like CoreData.
 
-I'll complete this section too as I'll be adding new technologies to the app.
+###How I handled dependencies
+
+For the dependency manager, I choose to use [**Carthage**](https://github.com/Carthage/Carthage) for its lightweightness and simplicity of use.
+
+I decided to not use **Cocoapods** because it makes a lot of black magic under the hood, like creating (and forcing you to use) an XCode Workspace containing your project, and I find it sometimes pretty annoying when it shows up some obscure errors while fetching dependencies or getting a new update.
+
+Why not **Swift package manager**, though ? Well... the only reason for the is that I don't know it enougth yet for using it to show of my skills. But I think it will clearly be the next reference to the Swift development comunity !
+
+###What dependencies I used
+
+At this time, there are only two dependencies. Those are Alamofire, and AlamofireImage.
+
+I don't have a lot to say about it, I choose them for handling the network layer and because I think their syntax and usage are pretty easy and nice.
 
 #Any good practices ?
 I'll definitely try to stick to the **TDD** practice. That's a good way to think of the [architecture](#the-architecture) and logic before runing, head down, somewhere we don't really know.
