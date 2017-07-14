@@ -38,6 +38,7 @@
 		FAFD260F1F191CE300E69255 /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD260E1F191CE300E69255 /* WeatherListViewController.swift */; };
 		FAFD26111F191D9400E69255 /* WeatherListModuleInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26101F191D9400E69255 /* WeatherListModuleInitializer.swift */; };
 		FAFD26131F19252700E69255 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26121F19252700E69255 /* PredictionTableViewCell.swift */; };
+		FAFD26151F192E9400E69255 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFD26141F192E9400E69255 /* AlamofireImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		FAFD260E1F191CE300E69255 /* WeatherListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
 		FAFD26101F191D9400E69255 /* WeatherListModuleInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListModuleInitializer.swift; sourceTree = "<group>"; };
 		FAFD26121F19252700E69255 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
+		FAFD26141F192E9400E69255 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFD26151F192E9400E69255 /* AlamofireImage.framework in Frameworks */,
 				FAFD26091F19142B00E69255 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +240,7 @@
 		FAFD26071F19142B00E69255 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAFD26141F192E9400E69255 /* AlamofireImage.framework */,
 				FAFD26081F19142B00E69255 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -360,9 +364,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class PredictionTableViewCell: UITableViewCell {
 
@@ -31,5 +33,17 @@ class PredictionTableViewCell: UITableViewCell {
 
     func setTemperature(_ temp: String) -> Void {
         temperatureLabel.text = temp
+    }
+    
+    func setIcon(withName name: String) -> Void {
+        let imgExtension = "png"
+        
+        let imageUrlPath = "https://openweathermap.org/img/w/\(name).\(imgExtension)"
+
+        Alamofire.request(imageUrlPath).responseImage { (response) in
+            if let image = response.result.value {
+                self.iconView.image = image
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-38" y="-630"/>
         </scene>
-        <!--Weather List View Controller-->
+        <!--Météo Paris-->
         <scene sceneID="xBU-lz-4cT">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZjL-fJ-6PZ" customClass="WeatherListViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,20 +50,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jto-Yh-VY7">
-                                                    <rect key="frame" x="8" y="20" width="60" height="60"/>
+                                                    <rect key="frame" x="8" y="8" width="84" height="84"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" placeholder="YES" id="Nuy-uw-fdB"/>
                                                         <constraint firstAttribute="width" secondItem="Jto-Yh-VY7" secondAttribute="height" id="moo-k2-oFq"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bl-sv-8Dj">
-                                                    <rect key="frame" x="78" y="8" width="39" height="21"/>
+                                                    <rect key="frame" x="102" y="8" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Température" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwd-WP-nsv">
-                                                    <rect key="frame" x="78" y="72" width="92.5" height="19.5"/>
+                                                    <rect key="frame" x="102" y="72" width="92.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -74,7 +73,7 @@
                                                 <constraint firstItem="7Bl-sv-8Dj" firstAttribute="leading" secondItem="Jto-Yh-VY7" secondAttribute="trailing" constant="10" id="FLk-6t-Fkd"/>
                                                 <constraint firstItem="Jto-Yh-VY7" firstAttribute="centerY" secondItem="ezU-8g-hLH" secondAttribute="centerY" id="Lpt-CE-P9U"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Bl-sv-8Dj" secondAttribute="trailing" constant="8" id="MQN-Fc-a1k"/>
-                                                <constraint firstItem="Jto-Yh-VY7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ezU-8g-hLH" secondAttribute="top" constant="8" id="eiG-oN-KQw"/>
+                                                <constraint firstItem="Jto-Yh-VY7" firstAttribute="top" secondItem="ezU-8g-hLH" secondAttribute="top" constant="8" id="eiG-oN-KQw"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wwd-WP-nsv" secondAttribute="trailing" constant="8" id="hEu-mj-7Nv"/>
                                                 <constraint firstItem="Jto-Yh-VY7" firstAttribute="leading" secondItem="ezU-8g-hLH" secondAttribute="leading" constant="8" id="hTy-kK-eAC"/>
                                                 <constraint firstItem="wwd-WP-nsv" firstAttribute="leading" secondItem="7Bl-sv-8Dj" secondAttribute="leading" id="oPC-Q5-iJj"/>
@@ -99,7 +98,7 @@
                             <constraint firstItem="dtK-rz-nHj" firstAttribute="leading" secondItem="OM4-Y0-qqd" secondAttribute="leading" id="xes-XV-WL1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Fhd-wM-vCB"/>
+                    <navigationItem key="navigationItem" title="Météo Paris" id="Fhd-wM-vCB"/>
                     <connections>
                         <outlet property="tableView" destination="dtK-rz-nHj" id="xyd-f1-i3G"/>
                     </connections>

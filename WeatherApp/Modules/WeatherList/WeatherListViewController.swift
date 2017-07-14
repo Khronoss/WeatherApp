@@ -66,7 +66,7 @@ extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.setTemperature(temp)
         
         if let weather = prediction.weathers.first {
-            cell.setIconName(weather.iconName)
+            cell.setIcon(withName: weather.iconName)
         }
     }
 }
