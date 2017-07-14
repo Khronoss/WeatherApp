@@ -11,17 +11,17 @@ import UIKit
 class WeatherListPresenter: NSObject {
     
     private var interface: WeatherListInterface
+    private var weatherService: WeatherListService
     
-    init(interface: WeatherListInterface) {
+    init(interface: WeatherListInterface, weatherService: WeatherListService) {
         self.interface = interface
+        self.weatherService = weatherService
         
         super.init()
     }
     
-    func initializeListOfPredictions() -> Void {
-        // loading list of predictions
-        // if cache has predictions and are from today, load them
-        // else load from OpenWeatherMap API
+    func loadPredictions() -> Void {
+        interface.updateView()
     }
     
 }
