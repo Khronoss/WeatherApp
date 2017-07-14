@@ -23,5 +23,4 @@ class WeatherListPresenter: NSObject {
     func loadPredictions() -> Void {
         interface.updateView()
     }
-    
 }
