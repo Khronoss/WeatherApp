@@ -14,7 +14,7 @@ class WeatherListServiceMock: NSObject, WeatherListService {
         completion(nil)
     }
     
-    func getPredictions() -> [Any] {
+    func getPredictions() -> [Prediction] {
         return []
     }
 }

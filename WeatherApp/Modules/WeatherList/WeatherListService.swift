@@ -10,5 +10,5 @@ import Foundation
 
 protocol WeatherListService: class {
     func loadPredictions(_ completion: @escaping (NSError?) -> Void) -> Void
-    func getPredictions() -> [Any]
+    func getPredictions() -> [Prediction]
 }

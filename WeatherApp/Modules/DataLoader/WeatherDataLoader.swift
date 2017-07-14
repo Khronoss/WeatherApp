@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WeatherDataLoader: class {
-    func getPredictionsFromAPI(_ completion: @escaping (Any?, NSError?) -> Void) -> Void
+    func getPredictionsFromAPI(_ completion: @escaping ([Prediction], NSError?) -> Void) -> Void
 }

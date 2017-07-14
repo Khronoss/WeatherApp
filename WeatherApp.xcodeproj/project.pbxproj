@@ -26,6 +26,12 @@
 		FAFD25F31F18FCA600E69255 /* WeatherDataLoaderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25F21F18FCA600E69255 /* WeatherDataLoaderMock.swift */; };
 		FAFD25F81F1901B100E69255 /* WeatherListServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25F61F1901B100E69255 /* WeatherListServiceTests.swift */; };
 		FAFD25F91F1901B100E69255 /* WeatherListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25F71F1901B100E69255 /* WeatherListTests.swift */; };
+		FAFD25FD1F19048900E69255 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25FC1F19048900E69255 /* Prediction.swift */; };
+		FAFD25FE1F1908FD00E69255 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25FC1F19048900E69255 /* Prediction.swift */; };
+		FAFD26001F19092800E69255 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25FF1F19092800E69255 /* Temperature.swift */; };
+		FAFD26011F19092B00E69255 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25FF1F19092800E69255 /* Temperature.swift */; };
+		FAFD26031F190A3600E69255 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26021F190A3600E69255 /* Weather.swift */; };
+		FAFD26041F190C2500E69255 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26021F190A3600E69255 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,9 @@
 		FAFD25F21F18FCA600E69255 /* WeatherDataLoaderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataLoaderMock.swift; sourceTree = "<group>"; };
 		FAFD25F61F1901B100E69255 /* WeatherListServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListServiceTests.swift; sourceTree = "<group>"; };
 		FAFD25F71F1901B100E69255 /* WeatherListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListTests.swift; sourceTree = "<group>"; };
+		FAFD25FC1F19048900E69255 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		FAFD25FF1F19092800E69255 /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		FAFD26021F190A3600E69255 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +107,7 @@
 		FA165F8A1F16B4E200617771 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAFD25FB1F19047B00E69255 /* Models */,
 				FA165FAD1F16B54D00617771 /* Modules */,
 				FA165FB31F16B5C700617771 /* Resources */,
 			);
@@ -143,10 +153,9 @@
 		FA165FB11F16B5B800617771 /* WeatherList */ = {
 			isa = PBXGroup;
 			children = (
+				FAFD25FA1F1901FA00E69255 /* Service */,
 				FA165FB61F16B89500617771 /* WeatherListPresenter.swift */,
 				FA165FB91F16BCD400617771 /* WeatherListInterface.swift */,
-				FAFD25E61F18FA9900E69255 /* WeatherListService.swift */,
-				FAFD25EB1F18FB7C00E69255 /* WeatherListServiceImpl.swift */,
 			);
 			path = WeatherList;
 			sourceTree = "<group>";
@@ -187,6 +196,25 @@
 				FAFD25F71F1901B100E69255 /* WeatherListTests.swift */,
 			);
 			path = WeatherList;
+			sourceTree = "<group>";
+		};
+		FAFD25FA1F1901FA00E69255 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FAFD25E61F18FA9900E69255 /* WeatherListService.swift */,
+				FAFD25EB1F18FB7C00E69255 /* WeatherListServiceImpl.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		FAFD25FB1F19047B00E69255 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAFD25FC1F19048900E69255 /* Prediction.swift */,
+				FAFD25FF1F19092800E69255 /* Temperature.swift */,
+				FAFD26021F190A3600E69255 /* Weather.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +323,11 @@
 			files = (
 				FAFD25E71F18FA9900E69255 /* WeatherListService.swift in Sources */,
 				FAFD25EC1F18FB7C00E69255 /* WeatherListServiceImpl.swift in Sources */,
+				FAFD26001F19092800E69255 /* Temperature.swift in Sources */,
 				FA165FB21F16B5B800617771 /* AppDelegate.swift in Sources */,
+				FAFD26031F190A3600E69255 /* Weather.swift in Sources */,
 				FAFD25F01F18FC6200E69255 /* WeatherDataLoader.swift in Sources */,
+				FAFD25FD1F19048900E69255 /* Prediction.swift in Sources */,
 				FA165FB71F16B89500617771 /* WeatherListPresenter.swift in Sources */,
 				FA165FBA1F16BCD400617771 /* WeatherListInterface.swift in Sources */,
 			);
@@ -308,10 +339,13 @@
 			files = (
 				FAFD25E81F18FAD600E69255 /* WeatherListService.swift in Sources */,
 				FAFD25E31F18FA2E00E69255 /* WeatherListInterfaceMock.swift in Sources */,
+				FAFD26011F19092B00E69255 /* Temperature.swift in Sources */,
 				FAFD25F81F1901B100E69255 /* WeatherListServiceTests.swift in Sources */,
+				FAFD25FE1F1908FD00E69255 /* Prediction.swift in Sources */,
 				FAFD25F91F1901B100E69255 /* WeatherListTests.swift in Sources */,
 				FAFD25F11F18FC7300E69255 /* WeatherDataLoader.swift in Sources */,
 				FA165FB81F16BC4000617771 /* WeatherListPresenter.swift in Sources */,
+				FAFD26041F190C2500E69255 /* Weather.swift in Sources */,
 				FAFD25E51F18FA4C00E69255 /* WeatherListServiceMock.swift in Sources */,
 				FAFD25F31F18FCA600E69255 /* WeatherDataLoaderMock.swift in Sources */,
 				FAFD25ED1F18FB9600E69255 /* WeatherListServiceImpl.swift in Sources */,

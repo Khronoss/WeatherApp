@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherListServiceImpl: NSObject, WeatherListService {
     
-    private var predictions: [Any] = []
+    private var predictions: [Prediction] = []
     
     private var dataLoader: WeatherDataLoader
     
@@ -26,11 +26,14 @@ class WeatherListServiceImpl: NSObject, WeatherListService {
         // else load from OpenWeatherMap API
         
         dataLoader.getPredictionsFromAPI { (predictions, error) in
+            
+            self.predictions = predictions
+            
             completion(error)
         }
     }
     
-    func getPredictions() -> [Any] {
+    func getPredictions() -> [Prediction] {
         return predictions
     }
 }
