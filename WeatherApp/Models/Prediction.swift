@@ -10,15 +10,17 @@ import UIKit
 
 class Prediction: NSObject {
     
+    var daytime: Double
     var temperature: Temperature
     var pressure: Float
     var humidity: Int
-    var weathers: [Any]
+    var weathers: [Weather]
     var windSpeed: Float
     var windDirection: Int
     var cloudiness: Int
 
     init(withJSON json: [String: Any]) {
+        daytime = json["dt"] as? Double ?? 0
         pressure = json["pressure"] as? Float ?? 0
         humidity = json["humidity"] as? Int ?? 0
         windSpeed = json["speed"] as? Float ?? 0

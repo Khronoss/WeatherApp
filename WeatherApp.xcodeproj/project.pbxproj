@@ -32,6 +32,12 @@
 		FAFD26011F19092B00E69255 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25FF1F19092800E69255 /* Temperature.swift */; };
 		FAFD26031F190A3600E69255 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26021F190A3600E69255 /* Weather.swift */; };
 		FAFD26041F190C2500E69255 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26021F190A3600E69255 /* Weather.swift */; };
+		FAFD26061F190FC000E69255 /* WeatherDataLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26051F190FC000E69255 /* WeatherDataLoaderImpl.swift */; };
+		FAFD26091F19142B00E69255 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFD26081F19142B00E69255 /* Alamofire.framework */; };
+		FAFD260C1F19175300E69255 /* WeatherAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD260B1F19175300E69255 /* WeatherAPIConfiguration.swift */; };
+		FAFD260F1F191CE300E69255 /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD260E1F191CE300E69255 /* WeatherListViewController.swift */; };
+		FAFD26111F191D9400E69255 /* WeatherListModuleInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26101F191D9400E69255 /* WeatherListModuleInitializer.swift */; };
+		FAFD26131F19252700E69255 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD26121F19252700E69255 /* PredictionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +72,12 @@
 		FAFD25FC1F19048900E69255 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		FAFD25FF1F19092800E69255 /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		FAFD26021F190A3600E69255 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FAFD26051F190FC000E69255 /* WeatherDataLoaderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataLoaderImpl.swift; sourceTree = "<group>"; };
+		FAFD26081F19142B00E69255 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FAFD260B1F19175300E69255 /* WeatherAPIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherAPIConfiguration.swift; sourceTree = "<group>"; };
+		FAFD260E1F191CE300E69255 /* WeatherListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
+		FAFD26101F191D9400E69255 /* WeatherListModuleInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListModuleInitializer.swift; sourceTree = "<group>"; };
+		FAFD26121F19252700E69255 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFD26091F19142B00E69255 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +105,7 @@
 				FA165F8A1F16B4E200617771 /* WeatherApp */,
 				FA165FA11F16B4E200617771 /* WeatherAppTests */,
 				FA165F891F16B4E200617771 /* Products */,
+				FAFD26071F19142B00E69255 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,9 +167,10 @@
 		FA165FB11F16B5B800617771 /* WeatherList */ = {
 			isa = PBXGroup;
 			children = (
+				FAFD260D1F191CCE00E69255 /* Interface */,
 				FAFD25FA1F1901FA00E69255 /* Service */,
 				FA165FB61F16B89500617771 /* WeatherListPresenter.swift */,
-				FA165FB91F16BCD400617771 /* WeatherListInterface.swift */,
+				FAFD26101F191D9400E69255 /* WeatherListModuleInitializer.swift */,
 			);
 			path = WeatherList;
 			sourceTree = "<group>";
@@ -185,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFD25EF1F18FC6200E69255 /* WeatherDataLoader.swift */,
+				FAFD26051F190FC000E69255 /* WeatherDataLoaderImpl.swift */,
+				FAFD260B1F19175300E69255 /* WeatherAPIConfiguration.swift */,
 			);
 			path = DataLoader;
 			sourceTree = "<group>";
@@ -217,6 +234,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FAFD26071F19142B00E69255 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAFD26081F19142B00E69255 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAFD260D1F191CCE00E69255 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				FA165FB91F16BCD400617771 /* WeatherListInterface.swift */,
+				FAFD260E1F191CE300E69255 /* WeatherListViewController.swift */,
+				FAFD26121F19252700E69255 /* PredictionTableViewCell.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,6 +262,7 @@
 				FA165F841F16B4E200617771 /* Sources */,
 				FA165F851F16B4E200617771 /* Frameworks */,
 				FA165F861F16B4E200617771 /* Resources */,
+				FAFD260A1F19144000E69255 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,6 +352,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FAFD260A1F19144000E69255 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA165F841F16B4E200617771 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -325,11 +379,16 @@
 				FAFD25EC1F18FB7C00E69255 /* WeatherListServiceImpl.swift in Sources */,
 				FAFD26001F19092800E69255 /* Temperature.swift in Sources */,
 				FA165FB21F16B5B800617771 /* AppDelegate.swift in Sources */,
+				FAFD26131F19252700E69255 /* PredictionTableViewCell.swift in Sources */,
 				FAFD26031F190A3600E69255 /* Weather.swift in Sources */,
 				FAFD25F01F18FC6200E69255 /* WeatherDataLoader.swift in Sources */,
+				FAFD260C1F19175300E69255 /* WeatherAPIConfiguration.swift in Sources */,
 				FAFD25FD1F19048900E69255 /* Prediction.swift in Sources */,
+				FAFD26111F191D9400E69255 /* WeatherListModuleInitializer.swift in Sources */,
 				FA165FB71F16B89500617771 /* WeatherListPresenter.swift in Sources */,
+				FAFD260F1F191CE300E69255 /* WeatherListViewController.swift in Sources */,
 				FA165FBA1F16BCD400617771 /* WeatherListInterface.swift in Sources */,
+				FAFD26061F190FC000E69255 /* WeatherDataLoaderImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +543,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JQSW558QPZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyMerle.WeatherApp;
@@ -499,6 +562,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JQSW558QPZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.anthonyMerle.WeatherApp;

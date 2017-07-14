@@ -25,12 +25,23 @@ class WeatherListServiceImpl: NSObject, WeatherListService {
         // if cache has predictions and are from today, load them
         // else load from OpenWeatherMap API
         
-        dataLoader.getPredictionsFromAPI { (predictions, error) in
+        dataLoader.getPredictionsFromAPI { (predictionsJSON, error) in
             
-            self.predictions = predictions
+            self.initPredictions(fromJSON: predictionsJSON)
             
             completion(error)
         }
+    }
+    
+    private func initPredictions(fromJSON jsons: [[String: Any]]) -> Void {
+        
+        var predictions = jsons.map { (json) -> Prediction in
+            return Prediction(withJSON: json)
+        }
+
+        predictions.sort { $0.0.daytime < $0.1.daytime }
+        
+        self.predictions = predictions
     }
     
     func getPredictions() -> [Prediction] {

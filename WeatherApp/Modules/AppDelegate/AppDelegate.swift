@@ -17,7 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        initializeListController()
+        
         return true
+    }
+    
+    private func initializeListController() -> Void {
+        guard let listControllerAsNav = window?.rootViewController as? UINavigationController else {
+            return
+        }
+        
+        guard let listController = listControllerAsNav.topViewController as? WeatherListViewController else {
+            return
+        }
+        
+        let listControllerInitializer = WeatherListModuleInitializer()
+
+        listControllerInitializer.initialize(controller: listController)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

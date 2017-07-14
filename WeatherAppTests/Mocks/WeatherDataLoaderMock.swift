@@ -10,14 +10,14 @@ import UIKit
 
 class WeatherDataLoaderMock: NSObject, WeatherDataLoader {
     
-    func getPredictionsFromAPI(_ completion: @escaping ([Prediction], NSError?) -> Void) {
+    func getPredictionsFromAPI(_ completion: @escaping ([[String: Any]], NSError?) -> Void) {
         
         let fakePrediction = singleFakePrediction()
         
         completion([fakePrediction], nil)
     }
     
-    private func singleFakePrediction() -> Prediction {
+    private func singleFakePrediction() -> [String: Any] {
         let tempJSON: [String: Any] = [
             "day": 22.33,
             "min": 13.85,
@@ -46,9 +46,7 @@ class WeatherDataLoaderMock: NSObject, WeatherDataLoader {
             "deg": 275,
             "clouds": 0
         ]
-
-        let fakePrediction = Prediction(withJSON: json)
         
-        return fakePrediction
+        return json
     }
 }
