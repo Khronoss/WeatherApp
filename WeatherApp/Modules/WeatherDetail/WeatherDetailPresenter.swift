@@ -25,11 +25,13 @@ class WeatherDetailPresenter: NSObject {
     func setPrediction(_ prediction: Prediction) -> Void {
         self.prediction = prediction
         
-        interface.updateView()
+        interface.updateView(withPrediction: prediction)
     }
     
-    func loadIcon(forPrediction prediction: Prediction) {
-        let iconName = prediction.weathers.first!.iconName
+    func loadPredictionIcon() {
+        guard let iconName = prediction?.weathers.first?.iconName else {
+            return
+        }
         
         iconService.loadIcon(forName: iconName) { (error) in
             guard error == nil else {

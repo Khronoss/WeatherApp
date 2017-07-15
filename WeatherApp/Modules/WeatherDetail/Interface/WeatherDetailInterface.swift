@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WeatherDetailInterface: class {
-    func updateView() -> Void
+    func updateView(withPrediction prediction: Prediction) -> Void
     
     func setIconImage(_ icon: UIImage) -> Void
 }

@@ -13,7 +13,7 @@ class WeatherDetailInterfaceMock: NSObject, WeatherDetailInterface {
     private(set) var viewUpdated = false
     private(set) var icon: UIImage? = nil
     
-    func updateView() {
+    func updateView(withPrediction prediction: Prediction) {
         viewUpdated = true
     }
     

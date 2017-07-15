@@ -41,8 +41,9 @@ class WeatherDetailPresenterTests: XCTestCase {
         let fakeIcon = UIImage(named: "FakeWeatherIcon")
         
         mockIconService.icon = fakeIcon
+        presenter.setPrediction(prediction)
         
-        presenter.loadIcon(forPrediction: prediction)
+        presenter.loadPredictionIcon()
         
         XCTAssertNotNil(mockDetailInterface.icon)
     }
