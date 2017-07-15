@@ -10,7 +10,9 @@ import UIKit
 
 class WeatherListViewController: UIViewController, WeatherListInterface {
 
+    @IBOutlet weak var loadingView: LoadingView!
     @IBOutlet weak var tableView: UITableView!
+    
     private(set) var predictions: [Prediction] = []
 
     var presenter: WeatherListPresenter!
@@ -19,6 +21,7 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
         super.viewDidLoad()
         
         initTableView()
+        
         presenter.loadPredictions()
     }
 
@@ -37,6 +40,7 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
     }
     
     func setLoading(_ isLoading: Bool) {
+        loadingView.isHidden = !isLoading
     }
     
     func reloadPrediction(atIndex index: Int) {

@@ -89,17 +89,42 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UJ-EF-3p6" customClass="LoadingView" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P0B-zr-ih6">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BpI-Ob-i2a">
+                                            <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
+                                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BpI-Ob-i2a" firstAttribute="centerX" secondItem="P0B-zr-ih6" secondAttribute="centerX" id="0R8-DK-EJx"/>
+                                        <constraint firstItem="BpI-Ob-i2a" firstAttribute="centerY" secondItem="P0B-zr-ih6" secondAttribute="centerY" id="MI7-7N-oLl"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2UJ-EF-3p6" secondAttribute="height" multiplier="1:1" id="Zvp-Pb-qaB"/>
+                                    <constraint firstAttribute="height" constant="100" id="rxG-Ov-VlP"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gOJ-nd-V2x" firstAttribute="top" secondItem="dtK-rz-nHj" secondAttribute="bottom" id="9Nt-1r-3oi"/>
                             <constraint firstItem="dtK-rz-nHj" firstAttribute="centerX" secondItem="OM4-Y0-qqd" secondAttribute="centerX" id="B6O-1t-HxS"/>
                             <constraint firstItem="dtK-rz-nHj" firstAttribute="top" secondItem="aKK-u3-9Kb" secondAttribute="bottom" id="DKL-Eb-aJL"/>
+                            <constraint firstItem="2UJ-EF-3p6" firstAttribute="centerY" secondItem="OM4-Y0-qqd" secondAttribute="centerY" id="c8h-fe-grO"/>
+                            <constraint firstItem="2UJ-EF-3p6" firstAttribute="centerX" secondItem="OM4-Y0-qqd" secondAttribute="centerX" id="v42-1p-8TO"/>
                             <constraint firstItem="dtK-rz-nHj" firstAttribute="leading" secondItem="OM4-Y0-qqd" secondAttribute="leading" id="xes-XV-WL1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Météo Paris" id="Fhd-wM-vCB"/>
                     <connections>
+                        <outlet property="loadingView" destination="2UJ-EF-3p6" id="MDz-3M-emw"/>
                         <outlet property="tableView" destination="dtK-rz-nHj" id="xyd-f1-i3G"/>
                     </connections>
                 </viewController>
