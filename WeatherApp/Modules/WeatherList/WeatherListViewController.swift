@@ -38,6 +38,12 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
     
     func setLoading(_ isLoading: Bool) {
     }
+    
+    func reloadPrediction(atIndex index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,8 +71,8 @@ extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.setDate(date)
         cell.setTemperature(temp)
         
-        if let weather = prediction.weathers.first {
-            cell.setIcon(withName: weather.iconName)
+        if let icon = presenter.icon(forPrediction: prediction) {
+            cell.setIcon(icon)
         }
     }
 }

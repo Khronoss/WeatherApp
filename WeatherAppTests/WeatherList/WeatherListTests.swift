@@ -10,18 +10,20 @@ import XCTest
 
 class WeatherListTests: XCTestCase {
     
-    private var mockWeatherService: WeatherListServiceMock!
     private var mockInterface: WeatherListInterfaceMock!
+    private var mockListService: WeatherListServiceMock!
+    private var mockIconService: WeatherIconServiceMock!
 
     private var weatherListPresenter: WeatherListPresenter!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        mockWeatherService = WeatherListServiceMock()
         mockInterface = WeatherListInterfaceMock()
+        mockListService = WeatherListServiceMock()
+        mockIconService = WeatherIconServiceMock()
         
-        weatherListPresenter = WeatherListPresenter(interface: mockInterface, weatherService: mockWeatherService)
+        weatherListPresenter = WeatherListPresenter(interface: mockInterface, listService: mockListService, iconService: mockIconService)
     }
     
     override func tearDown() {
@@ -32,6 +34,29 @@ class WeatherListTests: XCTestCase {
     func testPresenterLoadingPredictionsShouldCallInterfaceViewUpdate() {
         weatherListPresenter.loadPredictions()
         
-        XCTAssert(mockInterface.viewUpdated == true)
+        XCTAssertTrue(mockInterface.viewUpdated)
+    }
+
+    func testPresenterLoadingPredictionsShouldCallInterfaceSetLoading() {
+        weatherListPresenter.loadPredictions()
+        
+        XCTAssertTrue(mockInterface.isLoadingStart)
+    }
+
+    func testPresenterLoadingPredictionsShouldLoadImagesAndCallInterfaceReloadPrediction() {
+        mockListService.predictions = createFakePredictions()
+        
+        weatherListPresenter.loadPredictions()
+        
+        XCTAssertTrue(mockInterface.loadPredictionCalled)
+    }
+    
+    private func createFakePredictions() -> [Prediction] {
+        let dataProvider = PredictionsDataProvider()
+        let predictionJson = dataProvider.singleFakePrediction()
+        
+        let prediction = Prediction(withJSON: predictionJson)
+        
+        return [prediction]
     }
 }

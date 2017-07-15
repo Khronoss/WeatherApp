@@ -11,4 +11,6 @@ import Foundation
 protocol WeatherListInterface: class {
     func updateView() -> Void
     func setLoading(_ isLoading: Bool) -> Void
+    
+    func reloadPrediction(atIndex index: Int) -> Void
 }

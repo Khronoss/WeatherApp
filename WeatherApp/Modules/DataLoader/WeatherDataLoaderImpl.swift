@@ -8,12 +8,16 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class WeatherDataLoaderImpl: NSObject, WeatherDataLoader {
     
     private let dailyForecastAPIRoute = "/forecast/daily"
     private let maxPredictionsCount = 16
     private let cityId = 6455259 // Paris
+    
+    private let iconAPIRoute = "/img/w"
+    private let iconExtension = "png"
     
     private var apiConfiguration: WeatherAPIConfiguration
     
@@ -25,7 +29,7 @@ class WeatherDataLoaderImpl: NSObject, WeatherDataLoader {
     
     func getPredictionsFromAPI(_ completion: @escaping ([[String : Any]], NSError?) -> Void) {
         
-        let requestPath = createRequestPath()
+        let requestPath = createPredictionsListRequestPath()
         let parameters: [String: Any] = [
             "id": cityId,
             "units": apiConfiguration.desiredUnitSystem,
@@ -46,7 +50,24 @@ class WeatherDataLoaderImpl: NSObject, WeatherDataLoader {
         }
     }
     
-    private func createRequestPath() -> String {
+    private func createPredictionsListRequestPath() -> String {
         return "\(apiConfiguration.fullApiPath())\(dailyForecastAPIRoute)"
+    }
+    
+    func getIconFromAPI(withName name: String, completion: @escaping (UIImage?, NSError?) -> Void) {
+        let requestPath = createIconRequestPath(withName: name)
+        
+        Alamofire.request(requestPath).responseImage { (response) in
+            guard response.error == nil else {
+                completion(nil, response.error! as NSError)
+                return
+            }
+            
+            completion(response.result.value!, nil)
+        }
+    }
+    
+    private func createIconRequestPath(withName name: String) -> String {
+        return "\(apiConfiguration.hostName)\(iconAPIRoute)/\(name).\(iconExtension)"
     }
 }

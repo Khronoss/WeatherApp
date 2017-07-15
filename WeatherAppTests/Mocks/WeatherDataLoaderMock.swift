@@ -10,43 +10,16 @@ import UIKit
 
 class WeatherDataLoaderMock: NSObject, WeatherDataLoader {
     
+    var predictions: [[String: Any]] = []
+    
     func getPredictionsFromAPI(_ completion: @escaping ([[String: Any]], NSError?) -> Void) {
         
-        let fakePrediction = singleFakePrediction()
-        
-        completion([fakePrediction], nil)
+        completion(predictions, nil)
     }
     
-    private func singleFakePrediction() -> [String: Any] {
-        let tempJSON: [String: Any] = [
-            "day": 22.33,
-            "min": 13.85,
-            "max": 23.2,
-            "night": 13.85,
-            "eve": 21.79,
-            "morn": 22.33
-        ]
+    func getIconFromAPI(withName name: String, completion: @escaping (UIImage?, NSError?) -> Void) {
+        let icon = UIImage(named: "FakeWeatherIcon")
         
-        let weatherJSON: [String: Any] = [
-            "id": 800,
-            "main": "Clear",
-            "description": "sky is clear",
-            "icon": "01d"
-        ]
-        
-        let json: [String: Any] = [
-            "dt": 1500030000,
-            "temp": tempJSON,
-            "pressure": 1021.07,
-            "humidity": 62,
-            "weather": [
-                weatherJSON
-            ],
-            "speed": 4.72,
-            "deg": 275,
-            "clouds": 0
-        ]
-        
-        return json
+        completion(icon, nil)
     }
 }

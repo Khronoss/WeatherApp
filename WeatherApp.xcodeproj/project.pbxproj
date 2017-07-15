@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		FA165F931F16B4E200617771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA165F911F16B4E200617771 /* Main.storyboard */; };
-		FA165F951F16B4E200617771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA165F941F16B4E200617771 /* Assets.xcassets */; };
 		FA165F981F16B4E200617771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA165F961F16B4E200617771 /* LaunchScreen.storyboard */; };
 		FA165FB21F16B5B800617771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA165FAF1F16B5B800617771 /* AppDelegate.swift */; };
 		FA165FB71F16B89500617771 /* WeatherListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA165FB61F16B89500617771 /* WeatherListPresenter.swift */; };
 		FA165FB81F16BC4000617771 /* WeatherListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA165FB61F16B89500617771 /* WeatherListPresenter.swift */; };
 		FA165FBA1F16BCD400617771 /* WeatherListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA165FB91F16BCD400617771 /* WeatherListInterface.swift */; };
 		FA165FBB1F16BD2200617771 /* WeatherListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA165FB91F16BCD400617771 /* WeatherListInterface.swift */; };
+		FAC692601F1A4CC9004E0B09 /* WeatherIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6925F1F1A4CC9004E0B09 /* WeatherIconService.swift */; };
+		FAC692621F1A4D43004E0B09 /* WeatherIconServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC692611F1A4D43004E0B09 /* WeatherIconServiceImpl.swift */; };
+		FAC692631F1A5601004E0B09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA165F941F16B4E200617771 /* Assets.xcassets */; };
+		FAC692641F1A56F4004E0B09 /* WeatherIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC6925F1F1A4CC9004E0B09 /* WeatherIconService.swift */; };
+		FAC692661F1A57A1004E0B09 /* WeatherIconServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC692651F1A57A1004E0B09 /* WeatherIconServiceMock.swift */; };
+		FAC692691F1A60CC004E0B09 /* PredictionsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC692681F1A60CC004E0B09 /* PredictionsDataProvider.swift */; };
 		FAFD25E31F18FA2E00E69255 /* WeatherListInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25E21F18FA2E00E69255 /* WeatherListInterfaceMock.swift */; };
 		FAFD25E51F18FA4C00E69255 /* WeatherListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25E41F18FA4C00E69255 /* WeatherListServiceMock.swift */; };
 		FAFD25E71F18FA9900E69255 /* WeatherListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD25E61F18FA9900E69255 /* WeatherListService.swift */; };
@@ -62,6 +67,10 @@
 		FA165FAF1F16B5B800617771 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA165FB61F16B89500617771 /* WeatherListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListPresenter.swift; sourceTree = "<group>"; };
 		FA165FB91F16BCD400617771 /* WeatherListInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListInterface.swift; sourceTree = "<group>"; };
+		FAC6925F1F1A4CC9004E0B09 /* WeatherIconService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconService.swift; sourceTree = "<group>"; };
+		FAC692611F1A4D43004E0B09 /* WeatherIconServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconServiceImpl.swift; sourceTree = "<group>"; };
+		FAC692651F1A57A1004E0B09 /* WeatherIconServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconServiceMock.swift; sourceTree = "<group>"; };
+		FAC692681F1A60CC004E0B09 /* PredictionsDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionsDataProvider.swift; sourceTree = "<group>"; };
 		FAFD25E21F18FA2E00E69255 /* WeatherListInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListInterfaceMock.swift; sourceTree = "<group>"; };
 		FAFD25E41F18FA4C00E69255 /* WeatherListServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListServiceMock.swift; sourceTree = "<group>"; };
 		FAFD25E61F18FA9900E69255 /* WeatherListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListService.swift; sourceTree = "<group>"; };
@@ -135,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FA165FA41F16B4E200617771 /* Info.plist */,
+				FAC692671F1A60BD004E0B09 /* DataProviders */,
 				FAFD25E11F18FA1A00E69255 /* Mocks */,
 				FAFD25F51F1901B100E69255 /* WeatherList */,
 			);
@@ -189,12 +199,21 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		FAC692671F1A60BD004E0B09 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				FAC692681F1A60CC004E0B09 /* PredictionsDataProvider.swift */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
 		FAFD25E11F18FA1A00E69255 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				FAFD25E21F18FA2E00E69255 /* WeatherListInterfaceMock.swift */,
 				FAFD25E41F18FA4C00E69255 /* WeatherListServiceMock.swift */,
 				FAFD25F21F18FCA600E69255 /* WeatherDataLoaderMock.swift */,
+				FAC692651F1A57A1004E0B09 /* WeatherIconServiceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -223,6 +242,8 @@
 			children = (
 				FAFD25E61F18FA9900E69255 /* WeatherListService.swift */,
 				FAFD25EB1F18FB7C00E69255 /* WeatherListServiceImpl.swift */,
+				FAC6925F1F1A4CC9004E0B09 /* WeatherIconService.swift */,
+				FAC692611F1A4D43004E0B09 /* WeatherIconServiceImpl.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -342,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA165F981F16B4E200617771 /* LaunchScreen.storyboard in Resources */,
-				FA165F951F16B4E200617771 /* Assets.xcassets in Resources */,
 				FA165F931F16B4E200617771 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC692631F1A5601004E0B09 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,9 +405,11 @@
 				FAFD25E71F18FA9900E69255 /* WeatherListService.swift in Sources */,
 				FAFD25EC1F18FB7C00E69255 /* WeatherListServiceImpl.swift in Sources */,
 				FAFD26001F19092800E69255 /* Temperature.swift in Sources */,
+				FAC692621F1A4D43004E0B09 /* WeatherIconServiceImpl.swift in Sources */,
 				FA165FB21F16B5B800617771 /* AppDelegate.swift in Sources */,
 				FAFD26131F19252700E69255 /* PredictionTableViewCell.swift in Sources */,
 				FAFD26031F190A3600E69255 /* Weather.swift in Sources */,
+				FAC692601F1A4CC9004E0B09 /* WeatherIconService.swift in Sources */,
 				FAFD25F01F18FC6200E69255 /* WeatherDataLoader.swift in Sources */,
 				FAFD260C1F19175300E69255 /* WeatherAPIConfiguration.swift in Sources */,
 				FAFD25FD1F19048900E69255 /* Prediction.swift in Sources */,
@@ -403,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFD25E81F18FAD600E69255 /* WeatherListService.swift in Sources */,
+				FAC692691F1A60CC004E0B09 /* PredictionsDataProvider.swift in Sources */,
 				FAFD25E31F18FA2E00E69255 /* WeatherListInterfaceMock.swift in Sources */,
 				FAFD26011F19092B00E69255 /* Temperature.swift in Sources */,
 				FAFD25F81F1901B100E69255 /* WeatherListServiceTests.swift in Sources */,
@@ -411,10 +435,12 @@
 				FAFD25F11F18FC7300E69255 /* WeatherDataLoader.swift in Sources */,
 				FA165FB81F16BC4000617771 /* WeatherListPresenter.swift in Sources */,
 				FAFD26041F190C2500E69255 /* Weather.swift in Sources */,
+				FAC692661F1A57A1004E0B09 /* WeatherIconServiceMock.swift in Sources */,
 				FAFD25E51F18FA4C00E69255 /* WeatherListServiceMock.swift in Sources */,
 				FAFD25F31F18FCA600E69255 /* WeatherDataLoaderMock.swift in Sources */,
 				FAFD25ED1F18FB9600E69255 /* WeatherListServiceImpl.swift in Sources */,
 				FA165FBB1F16BD2200617771 /* WeatherListInterface.swift in Sources */,
+				FAC692641F1A56F4004E0B09 /* WeatherIconService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,14 +10,17 @@ import XCTest
 
 class WeatherListServiceTests: XCTestCase {
     
+    private var fakeDataProvider: PredictionsDataProvider!
+    private var mockDataLoader: WeatherDataLoaderMock!
     private var weatherListService: WeatherListServiceImpl!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let dataLoader = WeatherDataLoaderMock()
+        mockDataLoader = WeatherDataLoaderMock()
+        fakeDataProvider = PredictionsDataProvider()
         
-        weatherListService = WeatherListServiceImpl(dataLoader: dataLoader)
+        weatherListService = WeatherListServiceImpl(dataLoader: mockDataLoader)
     }
     
     override func tearDown() {
@@ -26,10 +29,14 @@ class WeatherListServiceTests: XCTestCase {
     }
     
     func testLoadingPredictionsShouldBeSetInService() {
+        let numberOfPredictions = 3
+        
+        mockDataLoader.predictions = fakeDataProvider.createMultipleFakePredictions(count: numberOfPredictions)
+
         weatherListService.loadPredictions { (error) in
             let predictions = self.weatherListService.getPredictions()
             
-            XCTAssert(predictions.count == 1)
+            XCTAssert(predictions.count == numberOfPredictions, "Expected \(numberOfPredictions) but got \(predictions.count)")
         }
     }
 }

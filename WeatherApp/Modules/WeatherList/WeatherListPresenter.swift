@@ -11,29 +11,60 @@ import UIKit
 class WeatherListPresenter: NSObject {
     
     private var interface: WeatherListInterface
-    private var weatherService: WeatherListService
+    private var listService: WeatherListService
+    private var iconService: WeatherIconService
     
     private(set) var predictions: [Prediction] = []
     
-    init(interface: WeatherListInterface, weatherService: WeatherListService) {
+    init(interface: WeatherListInterface, listService: WeatherListService, iconService: WeatherIconService) {
         self.interface = interface
-        self.weatherService = weatherService
+        self.listService = listService
+        self.iconService = iconService
         
         super.init()
     }
     
     func loadPredictions() -> Void {
-        // show loading
-        weatherService.loadPredictions { (error) in
-            // end loading
+        interface.setLoading(true)
+        
+        listService.loadPredictions { (error) in
+            self.interface.setLoading(false)
+
             // check error
+            
             self.handleLoadingSucceed()
         }
     }
     
     private func handleLoadingSucceed() -> Void {
-        predictions = weatherService.getPredictions()
+        predictions = listService.getPredictions()
         interface.updateView()
+        
+        loadPredictionsImages()
+    }
+
+    private func loadPredictionsImages() {
+        for prediction in predictions {
+            loadIcon(forPrediction: prediction)
+        }
+    }
+    
+    private func loadIcon(forPrediction prediction: Prediction) {
+        let iconName = prediction.weathers.first!.iconName
+        
+        iconService.loadIcon(forName: iconName) { (error) in
+            guard error == nil else {
+                return
+            }
+            
+            self.reloadPrediction(prediction)
+        }
+    }
+    
+    private func reloadPrediction(_ prediction: Prediction) -> Void {
+        if let index = predictions.index(of: prediction) {
+            interface.reloadPrediction(atIndex: index)
+        }
     }
     
     func dateString(forPrediction prediction: Prediction) -> String {
@@ -47,5 +78,11 @@ class WeatherListPresenter: NSObject {
     
     func celciusString(forPrediction prediction: Prediction) -> String {
         return "\(prediction.temperature.day)°C"
+    }
+    
+    func icon(forPrediction prediction: Prediction) -> UIImage? {
+        let iconName = prediction.weathers.first!.iconName
+
+        return iconService.getIcon(forName: iconName)
     }
 }

@@ -9,12 +9,13 @@
 import UIKit
 
 class WeatherListServiceMock: NSObject, WeatherListService {
+    var predictions: [Prediction] = []
     
     func loadPredictions(_ completion: @escaping (NSError?) -> Void) {
         completion(nil)
     }
     
     func getPredictions() -> [Prediction] {
-        return []
+        return predictions
     }
 }

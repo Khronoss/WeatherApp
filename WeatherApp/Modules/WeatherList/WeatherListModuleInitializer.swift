@@ -12,18 +12,32 @@ class WeatherListModuleInitializer: NSObject {
 
     func initialize(controller: WeatherListViewController) -> Void {
         
-        let service = createWeatherListService()
+        let listService = createWeatherListService()
+        let iconService = createWeatherIconService()
         
-        let presenter = WeatherListPresenter(interface: controller, weatherService: service)
+        let presenter = WeatherListPresenter(interface: controller, listService: listService, iconService: iconService)
 
         controller.presenter = presenter
     }
     
     private func createWeatherListService() -> WeatherListService {
-        let dataLoaderConfig = WeatherAPIConfiguration()
-        let dataLoader = WeatherDataLoaderImpl(configuration: dataLoaderConfig)
+        let dataLoader = createDataLoader()
         let service = WeatherListServiceImpl(dataLoader: dataLoader)
 
+        return service
+    }
+
+    private func createDataLoader() -> WeatherDataLoader {
+        let dataLoaderConfig = WeatherAPIConfiguration()
+        let dataLoader = WeatherDataLoaderImpl(configuration: dataLoaderConfig)
+        
+        return dataLoader
+    }
+    
+    private func createWeatherIconService() -> WeatherIconService {
+        let dataLoader = createDataLoader()
+        let service = WeatherIconServiceImpl(dataLoader: dataLoader)
+        
         return service
     }
 }

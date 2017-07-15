@@ -12,10 +12,21 @@ class WeatherListInterfaceMock: NSObject, WeatherListInterface {
     var viewUpdated = false
     var isLoadingStart = false
     var isLoadingEnd = false
+    var loadPredictionCalled = false
     
     func updateView() {
         viewUpdated = true
     }
     
-    func setLoading(_ isLoading: Bool) {}
+    func setLoading(_ isLoading: Bool) {
+        if isLoading {
+            isLoadingStart = true
+        } else {
+            isLoadingEnd = true
+        }
+    }
+    
+    func reloadPrediction(atIndex index: Int) {
+        loadPredictionCalled = true
+    }
 }
