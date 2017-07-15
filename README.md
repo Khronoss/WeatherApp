@@ -7,6 +7,8 @@ The main goal is to display the weather forecast for the 16 next days for Paris,
 ## <a name="more-features"></a>more features
 In adition to the main feature of the application, I could implement more [sexy things](https://www.youtube.com/watch?v=37FGwDMMZEg) that I'll list over the time in this section.
 
+A first tinny winny little feature is to present a detailed view of a selected weather informations. It's not a lot, but with using **MVP** and dividing screens/features by modules, it makes the logic very interesting to implement.
+
 #Why?
 Mainly for showing off my skill to you who is reding this file ;) (also for benchworking some stuffs that will go into the [more features](#more-features) section)
 
