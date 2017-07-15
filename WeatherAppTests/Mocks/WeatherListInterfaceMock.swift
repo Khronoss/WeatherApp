@@ -10,8 +10,12 @@ import UIKit
 
 class WeatherListInterfaceMock: NSObject, WeatherListInterface {
     var viewUpdated = false
+    
     var isLoadingStart = false
     var isLoadingEnd = false
+    
+    var errorPresented = false
+    
     var loadPredictionCalled = false
     
     func updateView() {
@@ -24,6 +28,10 @@ class WeatherListInterfaceMock: NSObject, WeatherListInterface {
         } else {
             isLoadingEnd = true
         }
+    }
+    
+    func presentError(_ error: NSError) {
+        errorPresented = true
     }
     
     func reloadPrediction(atIndex index: Int) {

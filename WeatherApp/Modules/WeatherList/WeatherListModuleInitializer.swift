@@ -10,7 +10,10 @@ import UIKit
 
 class WeatherListModuleInitializer: NSObject {
 
-    func initialize(controller: WeatherListViewController) -> Void {
+    func initialize(controller aController: UIViewController) -> Void {
+        guard let controller = aController as? WeatherListViewController else {
+            return
+        }
         
         let listService = createWeatherListService()
         let iconService = createWeatherIconService()

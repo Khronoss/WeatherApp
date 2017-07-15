@@ -1,5 +1,5 @@
 //
-//  WeatherListTests.swift
+//  WeatherListPresenterTests.swift
 //  WeatherApp
 //
 //  Created by Anthony Merle on 12/07/2017.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class WeatherListTests: XCTestCase {
+class WeatherListPresenterTests: XCTestCase {
     
     private var mockInterface: WeatherListInterfaceMock!
     private var mockListService: WeatherListServiceMock!

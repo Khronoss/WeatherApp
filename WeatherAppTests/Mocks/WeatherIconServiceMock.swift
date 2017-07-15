@@ -9,11 +9,13 @@
 import UIKit
 
 class WeatherIconServiceMock: NSObject, WeatherIconService {
+    var icon: UIImage? = nil
+    
     func loadIcon(forName name: String, completion: @escaping (NSError?) -> Void) {
         completion(nil)
     }
     
     func getIcon(forName name: String) -> UIImage? {
-        return nil
+        return icon
     }
 }
