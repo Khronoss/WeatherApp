@@ -31,9 +31,7 @@ class WeatherDetailPresenter: NSObject {
     }
     
     func loadPredictionIcon() {
-        guard let iconName = prediction?.weathers.first?.iconName else {
-            return
-        }
+        let iconName = prediction!.weathers.first!.iconName
         
         iconService.loadIcon(forName: iconName) { (error) in
             guard error == nil else {
@@ -44,20 +42,5 @@ class WeatherDetailPresenter: NSObject {
                 self.interface.setIconImage(icon)
             }
         }
-    }
-    
-    func dateString(forPrediction prediction: Prediction) -> String {
-        let date = Date(timeIntervalSince1970: prediction.daytime)
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        
-        return formatter.string(from: date)
-    }
-    
-    func celciusString(forPrediction prediction: Prediction) -> String {
-        let roundedTemp = String(format: "%.1f", prediction.temperature.day)
-        
-        return "\(roundedTemp)°C"
     }
 }

@@ -74,21 +74,6 @@ class WeatherListPresenter: NSObject {
         }
     }
     
-    func dateString(forPrediction prediction: Prediction) -> String {
-        let date = Date(timeIntervalSince1970: prediction.daytime)
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        
-        return formatter.string(from: date)
-    }
-    
-    func celciusString(forPrediction prediction: Prediction) -> String {
-        let roundedTemp = String(format: "%.1f", prediction.temperature.day)
-
-        return "\(roundedTemp)°C"
-    }
-    
     func icon(forPrediction prediction: Prediction) -> UIImage? {
         let iconName = prediction.weathers.first!.iconName
 

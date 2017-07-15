@@ -16,11 +16,13 @@ class WeatherDetailModuleInitializerImpl: NSObject, WeatherDetailModuleInitializ
         }
         
         let iconService = createIconService()
-        
+        let formatter = PredictionInformationsFormatter()
+
         let presenter = WeatherDetailPresenter(interface: interface, iconService: iconService)
 
         controller.presenter = presenter
-
+        controller.predictionFormatter = formatter
+        
         presenter.setPrediction(prediction)
     }
     

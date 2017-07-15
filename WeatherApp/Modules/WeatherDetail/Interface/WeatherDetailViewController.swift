@@ -26,7 +26,8 @@ class WeatherDetailViewController: UIViewController, WeatherDetailInterface {
     
     var localizator: WordingLocalization? = nil
     var presenter: WeatherDetailPresenter? = nil
-    
+    var predictionFormatter: PredictionInformationsFormatter?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +63,7 @@ class WeatherDetailViewController: UIViewController, WeatherDetailInterface {
             return
         }
         
-        title = presenter?.dateString(forPrediction: prediction)
+        title = predictionFormatter?.dateString(forPrediction: prediction)
     }
 
     private func updatePredictionInfosIfViewLoaded() -> Void {
@@ -77,15 +78,15 @@ class WeatherDetailViewController: UIViewController, WeatherDetailInterface {
     }
 
     private func updateTemperature() -> Void {
-        temperatureValueView.text = presenter?.celciusString(forPrediction: prediction!)
+        temperatureValueView.text = predictionFormatter?.celciusString(forPrediction: prediction!)
     }
     
     private func updateWind() -> Void {
-        windValueView.text = "\(prediction!.windSpeed)"
+        windValueView.text = predictionFormatter?.windSpeedString(forPrediction: prediction!)
     }
     
     private func updateHumidity() -> Void {
-        humidityValueView.text = "\(prediction!.humidity)%"
+        humidityValueView.text = predictionFormatter?.humidityString(forPrediction: prediction!)
     }
     
     private func updateDescription() -> Void {

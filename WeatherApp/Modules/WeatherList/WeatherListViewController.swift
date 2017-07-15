@@ -20,6 +20,7 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
 
     var localizator: WordingLocalization?
     var presenter: WeatherListPresenter!
+    var predictionFormatter: PredictionInformationsFormatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,8 +124,8 @@ extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource 
     
     private func configCell(_ cell: PredictionTableViewCell, withPrediction prediction: Prediction) -> Void {
         
-        let date = presenter.dateString(forPrediction: prediction)
-        let temp = presenter.celciusString(forPrediction: prediction)
+        let date = predictionFormatter?.dateString(forPrediction: prediction) ?? ""
+        let temp = predictionFormatter?.celciusString(forPrediction: prediction) ?? ""
         
         cell.setDate(date)
         cell.setTemperature(temp)
