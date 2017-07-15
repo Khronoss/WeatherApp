@@ -14,10 +14,12 @@ class WeatherListModuleInitializer: NSObject {
         
         let listService = createWeatherListService()
         let iconService = createWeatherIconService()
+        let localizator = WordingLocalization()
         
         let presenter = WeatherListPresenter(interface: controller, listService: listService, iconService: iconService)
 
         controller.presenter = presenter
+        controller.localizator = localizator
     }
     
     private func createWeatherListService() -> WeatherListService {

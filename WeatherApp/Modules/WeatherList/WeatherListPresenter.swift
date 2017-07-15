@@ -83,7 +83,9 @@ class WeatherListPresenter: NSObject {
     }
     
     func celciusString(forPrediction prediction: Prediction) -> String {
-        return "\(prediction.temperature.day)°C"
+        let roundedTemp = String(format: "%.1f", prediction.temperature.day)
+
+        return "\(roundedTemp)°C"
     }
     
     func icon(forPrediction prediction: Prediction) -> UIImage? {

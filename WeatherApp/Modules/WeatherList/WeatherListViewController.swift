@@ -15,6 +15,7 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
     
     private(set) var predictions: [Prediction] = []
 
+    var localizator: WordingLocalization?
     var presenter: WeatherListPresenter!
     
     override func viewDidLoad() {
@@ -52,12 +53,14 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
     private func createAlert(withText text: String) -> UIAlertController {
         let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
         
-        var action = UIAlertAction(title: "OK", style: .destructive) { (action) in
+        var actionTitle = localized("ok")
+        var action = UIAlertAction(title: actionTitle.uppercased(), style: .destructive) { (action) in
             alert.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
         
-        action = UIAlertAction(title: "RELOAD", style: .default, handler: { (action) in
+        actionTitle = localized("reload")
+        action = UIAlertAction(title: actionTitle.uppercased(), style: .default, handler: { (action) in
             self.presenter.loadPredictions()
             
             alert.dismiss(animated: true, completion: nil)
@@ -65,6 +68,10 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
         alert.addAction(action)
         
         return alert
+    }
+    
+    private func localized(_ text: String) -> String {
+        return localizator?.localized(text) ?? text
     }
     
     func reloadPrediction(atIndex index: Int) {
