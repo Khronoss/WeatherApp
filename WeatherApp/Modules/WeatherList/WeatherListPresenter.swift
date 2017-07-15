@@ -28,11 +28,17 @@ class WeatherListPresenter: NSObject {
         interface.setLoading(true)
         
         listService.loadPredictions { (error) in
-            self.interface.setLoading(false)
-
-            // check error
-            
-            self.handleLoadingSucceed()
+            self.loadEnded(error)
+        }
+    }
+    
+    private func loadEnded(_ error: NSError?) -> Void {
+        interface.setLoading(false)
+        
+        if error == nil {
+            handleLoadingSucceed()
+        } else {
+            interface.presentError(error!)
         }
     }
     

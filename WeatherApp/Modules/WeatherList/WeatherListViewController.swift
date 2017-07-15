@@ -43,6 +43,30 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
         loadingView.isHidden = !isLoading
     }
     
+    func presentError(_ error: NSError) {
+        let alert = createAlert(withText: error.localizedDescription)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func createAlert(withText text: String) -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+        
+        var action = UIAlertAction(title: "OK", style: .destructive) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        
+        action = UIAlertAction(title: "RELOAD", style: .default, handler: { (action) in
+            self.presenter.loadPredictions()
+            
+            alert.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(action)
+        
+        return alert
+    }
+    
     func reloadPrediction(atIndex index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
         
