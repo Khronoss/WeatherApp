@@ -6,11 +6,8 @@
 //  Copyright © 2017 Anthony Merle. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class WeatherDetailModuleInitializer: NSObject {
-
-    func initialize(controller aController: UIViewController) -> Void {
-    }
-    
+protocol WeatherDetailModuleInitializer: class {
+    func initialize(interface: WeatherDetailInterface) -> Void
 }

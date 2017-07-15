@@ -15,6 +15,7 @@ class WeatherListPresenter: NSObject {
     private var iconService: WeatherIconService
     
     private(set) var predictions: [Prediction] = []
+    private var detailModuleInitializer: WeatherDetailModuleInitializer?
     
     init(interface: WeatherListInterface, listService: WeatherListService, iconService: WeatherIconService) {
         self.interface = interface
@@ -92,5 +93,13 @@ class WeatherListPresenter: NSObject {
         let iconName = prediction.weathers.first!.iconName
 
         return iconService.getIcon(forName: iconName)
+    }
+    
+    func setDetailInitializer(_ initializer: WeatherDetailModuleInitializer) -> Void {
+        self.detailModuleInitializer = initializer
+    }
+    
+    func initializeDetailModule(withInterface interface: WeatherDetailInterface) -> Void {
+        detailModuleInitializer?.initialize(interface: interface)
     }
 }

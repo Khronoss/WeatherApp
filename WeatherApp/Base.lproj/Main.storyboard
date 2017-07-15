@@ -126,11 +126,30 @@
                     <connections>
                         <outlet property="loadingView" destination="2UJ-EF-3p6" id="MDz-3M-emw"/>
                         <outlet property="tableView" destination="dtK-rz-nHj" id="xyd-f1-i3G"/>
+                        <segue destination="Ne0-dZ-CSN" kind="show" identifier="showDetails" id="IqV-Aj-sO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBo-u0-TXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="-630.13493253373315"/>
+        </scene>
+        <!--Weather Detail View Controller-->
+        <scene sceneID="7R4-8O-jVr">
+            <objects>
+                <viewController id="Ne0-dZ-CSN" customClass="WeatherDetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zWT-ak-PDc"/>
+                        <viewControllerLayoutGuide type="bottom" id="JTf-UJ-QDQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ah-xx-XDW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgd-ZO-5SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-630"/>
         </scene>
     </scenes>
 </document>

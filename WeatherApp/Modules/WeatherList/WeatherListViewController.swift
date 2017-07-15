@@ -10,9 +10,12 @@ import UIKit
 
 class WeatherListViewController: UIViewController, WeatherListInterface {
 
+    private let showDetailSegue = "showDetails"
+    
     @IBOutlet weak var loadingView: LoadingView!
     @IBOutlet weak var tableView: UITableView!
     
+    private var selectedPrediction: Prediction?
     private(set) var predictions: [Prediction] = []
 
     var localizator: WordingLocalization?
@@ -79,6 +82,26 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
         
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
+    
+    func presentDetail(forPrediction prediction: Prediction) -> Void {
+        selectedPrediction = prediction
+        
+        performSegue(withIdentifier: showDetailSegue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == showDetailSegue {
+            prepareDetailController(segue.destination)
+        }
+    }
+    
+    private func prepareDetailController(_ controller: UIViewController) -> Void {
+        guard let detailInterface = controller as? WeatherDetailInterface else {
+            return
+        }
+        
+        presenter.initializeDetailModule(withInterface: detailInterface)
+    }
 }
 
 extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -109,5 +132,11 @@ extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource 
         if let icon = presenter.icon(forPrediction: prediction) {
             cell.setIcon(icon)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let prediction = predictions[indexPath.row]
+        
+        presentDetail(forPrediction: prediction)
     }
 }

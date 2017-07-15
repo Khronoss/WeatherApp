@@ -20,6 +20,9 @@ class WeatherListModuleInitializer: NSObject {
         let localizator = WordingLocalization()
         
         let presenter = WeatherListPresenter(interface: controller, listService: listService, iconService: iconService)
+        
+        let detailInitializer = createDetailInitializer()
+        presenter.setDetailInitializer(detailInitializer)
 
         controller.presenter = presenter
         controller.localizator = localizator
@@ -44,5 +47,11 @@ class WeatherListModuleInitializer: NSObject {
         let service = WeatherIconServiceImpl(dataLoader: dataLoader)
         
         return service
+    }
+    
+    private func createDetailInitializer() -> WeatherDetailModuleInitializer {
+        let initializer = WeatherDetailModuleInitializerImpl()
+        
+        return initializer
     }
 }
