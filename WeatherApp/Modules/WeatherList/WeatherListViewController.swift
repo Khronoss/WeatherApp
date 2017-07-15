@@ -100,7 +100,7 @@ class WeatherListViewController: UIViewController, WeatherListInterface {
             return
         }
         
-        presenter.initializeDetailModule(withInterface: detailInterface)
+        presenter.initializeDetailModule(withInterface: detailInterface, andPrediction: selectedPrediction!)
     }
 }
 

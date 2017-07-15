@@ -8,3 +8,7 @@
 
 "reload" = "recharger";
 "ok" = "ok";
+
+"temperature" = "temperature";
+"wind" = "wind";
+"humidity" = "humidity";

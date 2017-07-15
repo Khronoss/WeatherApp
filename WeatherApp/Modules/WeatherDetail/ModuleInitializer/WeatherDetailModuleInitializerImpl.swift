@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherDetailModuleInitializerImpl: NSObject, WeatherDetailModuleInitializer {
     
-    func initialize(interface: WeatherDetailInterface) -> Void {
+    func initialize(interface: WeatherDetailInterface, withPrediction prediction: Prediction) -> Void {
         guard let controller = interface as? WeatherDetailViewController else {
             return
         }
@@ -18,8 +18,10 @@ class WeatherDetailModuleInitializerImpl: NSObject, WeatherDetailModuleInitializ
         let iconService = createIconService()
         
         let presenter = WeatherDetailPresenter(interface: interface, iconService: iconService)
-        
+
         controller.presenter = presenter
+
+        presenter.setPrediction(prediction)
     }
     
     private func createIconService() -> WeatherIconService {

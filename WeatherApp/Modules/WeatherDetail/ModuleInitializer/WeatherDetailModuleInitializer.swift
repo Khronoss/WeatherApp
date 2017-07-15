@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WeatherDetailModuleInitializer: class {
-    func initialize(interface: WeatherDetailInterface) -> Void
+    func initialize(interface: WeatherDetailInterface, withPrediction: Prediction) -> Void
 }

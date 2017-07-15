@@ -99,7 +99,7 @@ class WeatherListPresenter: NSObject {
         self.detailModuleInitializer = initializer
     }
     
-    func initializeDetailModule(withInterface interface: WeatherDetailInterface) -> Void {
-        detailModuleInitializer?.initialize(interface: interface)
+    func initializeDetailModule(withInterface interface: WeatherDetailInterface, andPrediction prediction: Prediction) -> Void {
+        detailModuleInitializer?.initialize(interface: interface, withPrediction: prediction)
     }
 }
