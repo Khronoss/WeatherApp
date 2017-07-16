@@ -11,14 +11,16 @@ import UIKit
 class WeatherListCacheImpl: NSObject, WeatherListCache {
     
     private var defaults: UserDefaults
+    private var dateFactory: DateFactory
     
-    init(defaults: UserDefaults) {
+    init(defaults: UserDefaults, dateFactory: DateFactory) {
         self.defaults = defaults
+        self.dateFactory = dateFactory
         
         super.init()
     }
     
-    func setCachedPredictions(forCityId cityId: Int) {
+    func setCachedPredictions(_ predictions: [Prediction], forCityId cityId: Int) {
     }
     
     func cachedPredictions(forCityId cityId: Int) throws -> [Prediction] {

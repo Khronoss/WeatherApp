@@ -9,7 +9,8 @@
 import Foundation
 
 enum WeatherListCacheError: Error {
-    case PredictionsNotFound
+    case NotFound
+    case Expired
 }
 
 protocol WeatherListCache: class {
