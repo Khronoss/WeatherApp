@@ -13,6 +13,6 @@ class DateFactoryMock: DateFactory {
     var date = Date()
     
     override func nowDate() -> Date {
-        return dateWeatherAppTests/Cache/WeatherListCacheTests.swift
+        return date
     }
 }
